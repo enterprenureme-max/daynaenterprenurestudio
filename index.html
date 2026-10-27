@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Dayna Entrepreneur Studio — Web Design · Marketing · SEO · UGC Ads</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background-color: #fef7f9;
+      color: #3d2a33;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --pink-soft: #f8e4ed;
+      --pink-light: #f3d3e0;
+      --pink-medium: #d97a9e;
+      --pink-deep: #b34a72;
+      --yellow-soft: #fef2d4;
+      --yellow-warm: #f5d76e;
+      --yellow-glow: #f7e5a9;
+      --text-dark: #3d2a33;
+      --text-soft: #6b4f5a;
+      --card-bg: #ffffff;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #fef7f9; }
+    ::-webkit-scrollbar-thumb { background: var(--pink-medium); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--pink-deep); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 86px 0; scroll-margin-top: 70px; }
+
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 500; letter-spacing: -0.01em; color: var(--text-dark); }
+    h2 { font-size: 2.4rem; margin-bottom: 14px; font-weight: 500; color: var(--text-dark); }
+    h2 span { color: var(--pink-deep); border-bottom: 2px solid var(--yellow-warm); padding-bottom: 4px; }
+    .section-subhead { text-align: center; max-width: 660px; margin: 0 auto 56px auto; color: var(--text-soft); font-weight: 300; font-size: 1.08rem; letter-spacing: 0.2px; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block; padding: 14px 36px; border-radius: 60px;
+      font-family: 'Inter', sans-serif; font-weight: 500; text-decoration: none;
+      transition: all 0.25s ease; border: none; cursor: pointer;
+      font-size: 0.98rem; letter-spacing: 0.2px;
+    }
+    .btn-primary {
+      background: var(--pink-medium); color: #ffffff;
+      box-shadow: 0 8px 16px -6px rgba(217, 122, 158, 0.5);
+      border: 1px solid rgba(179, 74, 114, 0.2);
+    }
+    .btn-primary:hover {
+      background: var(--pink-deep); transform: translateY(-2px);
+      box-shadow: 0 14px 22px -8px rgba(179, 74, 114, 0.4);
+    }
+    .btn-yellow {
+      background: var(--yellow-warm); color: #4a3a2a; font-weight: 500;
+      box-shadow: 0 8px 16px -6px rgba(245, 215, 110, 0.5);
+    }
+    .btn-yellow:hover {
+      background: #f7e5a9; transform: translateY(-2px);
+      box-shadow: 0 14px 22px -8px rgba(245, 215, 110, 0.7);
+    }
+    .btn-outline {
+      background: transparent; border: 1.5px solid var(--pink-medium);
+      color: var(--pink-deep); font-weight: 400;
+    }
+    .btn-outline:hover {
+      background: var(--pink-soft); transform: translateY(-2px);
+      border-color: var(--pink-deep);
+    }
+    .btn-whatsapp-nav {
+      background: #25D366; color: white; padding: 8px 18px;
+      border-radius: 40px; font-size: 0.85rem;
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none; font-weight: 500; transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-whatsapp-nav:hover {
+      background: #1ebe5b; transform: translateY(-2px);
+      box-shadow: 0 8px 16px -6px rgba(37, 211, 102, 0.5);
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(254, 247, 249, 0.92);
+      backdrop-filter: blur(12px); z-index: 999;
+      padding: 12px 0; border-bottom: 1px solid rgba(217, 122, 158, 0.25);
+      box-shadow: 0 2px 20px rgba(217, 122, 158, 0.08);
+    }
+    .nav-container {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px; gap: 12px;
+    }
+    .logo {
+      font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 500;
+      color: var(--text-dark); text-decoration: none;
+      letter-spacing: -0.3px; flex-shrink: 0;
+    }
+    .logo span { color: var(--pink-deep); font-weight: 500; }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a:not(.btn-whatsapp-nav) {
+      font-family: 'Inter', sans-serif; font-weight: 400;
+      color: var(--text-soft); text-decoration: none; transition: 0.2s;
+      font-size: 0.95rem; border-bottom: 1.5px solid transparent; padding-bottom: 3px;
+    }
+    .nav-links a:not(.btn-whatsapp-nav):hover {
+      color: var(--pink-deep); border-bottom-color: var(--yellow-warm);
+    }
+    .menu-toggle {
+      display: none; background: transparent;
+      border: 1.5px solid var(--pink-medium); color: var(--pink-deep);
+      font-size: 1.3rem; padding: 6px 14px; border-radius: 40px; cursor: pointer;
+    }
+
+    /* MARQUEE */
+    .marquee-wrapper {
+      margin-top: 68px; background: var(--yellow-soft);
+      border-top: 1px solid rgba(245, 215, 110, 0.5);
+      border-bottom: 1px solid rgba(245, 215, 110, 0.5);
+      padding: 12px 0; overflow: hidden; white-space: nowrap;
+    }
+    .marquee { display: inline-block; animation: scrollMarquee 28s linear infinite; }
+    .marquee span {
+      display: inline-block; padding: 0 32px;
+      font-family: 'Inter', sans-serif; font-weight: 400;
+      font-size: 1rem; color: var(--text-soft); letter-spacing: 0.4px;
+    }
+    .marquee span i { color: var(--pink-medium); margin-right: 8px; font-size: 0.9rem; }
+    @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      background: linear-gradient(145deg, #fef7f9 0%, #fdf1f5 100%);
+      padding-top: 80px; position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(245, 215, 110, 0.15) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-content { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 50px; }
+    .hero-text { flex: 1 1 500px; }
+    .hero-text .badge {
+      display: inline-block; background: var(--pink-soft);
+      border: 1px solid var(--pink-light); color: var(--pink-deep);
+      padding: 6px 20px; border-radius: 60px; font-size: 0.88rem;
+      font-weight: 400; margin-bottom: 24px; letter-spacing: 0.3px;
+    }
+    .hero-text h1 { font-size: 3.2rem; line-height: 1.25; margin-bottom: 22px; color: var(--text-dark); font-weight: 500; }
+    .hero-text h1 span { color: var(--pink-deep); display: inline; border-bottom: 2px solid var(--yellow-warm); }
+    .hero-text p { font-size: 1.12rem; color: var(--text-soft); margin-bottom: 34px; max-width: 520px; font-weight: 300; line-height: 1.7; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 18px; }
+    .hero-visual { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
+    .hero-orb {
+      width: 340px; height: 340px;
+      background: radial-gradient(circle at 30% 30%, #fff5f9, #fce4ef);
+      border-radius: 50%; position: relative;
+      animation: float 7s ease-in-out infinite;
+      border: 3px solid var(--pink-medium);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 30px 50px -20px rgba(217, 122, 158, 0.4),
+                  0 0 0 10px rgba(248, 228, 237, 0.5),
+                  0 0 0 20px rgba(245, 215, 110, 0.08);
+      overflow: hidden;
+    }
+    .hero-orb svg { width: 78%; height: 78%; display: block; }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-18px); } 100% { transform: translateY(0px); } }
+
+    /* ABOUT */
+    .about { background: #fdf5f8; }
+    .about-grid { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+    .about-text { flex: 1 1 400px; }
+    .about-text h2 { font-size: 2.4rem; margin-bottom: 16px; font-weight: 500; }
+    .about-text p { color: var(--text-soft); margin-bottom: 18px; font-size: 1.04rem; font-weight: 300; line-height: 1.8; }
+    .about-text .highlight {
+      color: var(--pink-deep); font-weight: 500;
+      background: var(--yellow-soft); padding: 2px 8px; border-radius: 20px;
+    }
+    .about-stats { flex: 1 1 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-item {
+      background: var(--card-bg); padding: 28px 16px;
+      border-radius: 28px; text-align: center;
+      border: 1px solid var(--pink-light); transition: 0.25s;
+      box-shadow: 0 8px 18px -8px rgba(217, 122, 158, 0.15);
+    }
+    .stat-item:hover { border-color: var(--yellow-warm); transform: scale(1.02); box-shadow: 0 18px 28px -12px rgba(217, 122, 158, 0.25); }
+    .stat-number { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 500; color: var(--pink-deep); line-height: 1.2; }
+    .stat-label { color: var(--text-soft); font-weight: 300; font-size: 0.92rem; letter-spacing: 0.2px; }
+
+    /* SERVICES */
+    .services { background: #fef7f9; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+    .service-card {
+      background: var(--card-bg); padding: 36px 24px;
+      border-radius: 32px; border: 1px solid var(--pink-light);
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 26px -12px rgba(217, 122, 158, 0.15);
+      text-align: center;
+    }
+    .service-card:hover {
+      border-color: var(--yellow-warm); transform: translateY(-6px);
+      box-shadow: 0 24px 36px -16px rgba(217, 122, 158, 0.3);
+    }
+    .service-icon {
+      font-size: 2.4rem; color: var(--pink-deep); margin-bottom: 18px;
+      background: var(--pink-soft); width: 72px; height: 72px;
+      line-height: 72px; border-radius: 50%;
+      margin-left: auto; margin-right: auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .service-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--text-dark); font-weight: 500; }
+    .service-card p { color: var(--text-soft); font-weight: 300; font-size: 0.96rem; margin-bottom: 18px; line-height: 1.7; }
+    .service-tag {
+      display: inline-block; background: var(--yellow-soft);
+      color: var(--text-dark); font-weight: 400; padding: 4px 16px;
+      border-radius: 40px; font-size: 0.78rem; letter-spacing: 0.4px;
+      border: 1px solid rgba(245, 215, 110, 0.5);
+    }
+
+    /* BOOKING */
+    .booking { background: linear-gradient(135deg, #fef7f9 0%, #fdf1f5 100%); }
+    .booking-card {
+      background: var(--card-bg); padding: 48px 32px; border-radius: 48px;
+      border: 1px solid var(--pink-light);
+      box-shadow: 0 22px 40px -18px rgba(217, 122, 158, 0.25);
+      text-align: center; max-width: 780px; margin: 0 auto;
+    }
+    .booking-card i.fa-whatsapp {
+      font-size: 3rem; color: var(--pink-deep);
+      background: var(--pink-soft); padding: 20px;
+      border-radius: 50%; margin-bottom: 16px;
+    }
+    .booking-card h3 { font-size: 2rem; color: var(--text-dark); margin-bottom: 14px; font-weight: 500; }
+    .booking-card p { color: var(--text-soft); font-size: 1.05rem; margin-bottom: 24px; font-weight: 300; }
+    .whatsapp-number {
+      font-family: 'Poppins', sans-serif; font-size: 1.5rem;
+      font-weight: 500; color: var(--pink-deep);
+      margin: 16px 0 14px; letter-spacing: 0.5px;
+    }
+    .booking-note { font-size: 0.88rem; color: #9b7e8a; margin-top: 18px; font-weight: 300; }
+
+    /* CONTACT */
+    .contact { background: #fdf5f8; }
+    .contact-form {
+      max-width: 720px; margin: 0 auto; background: var(--card-bg);
+      padding: 44px 36px; border-radius: 40px;
+      border: 1px solid var(--pink-light);
+      box-shadow: 0 18px 36px -16px rgba(217, 122, 158, 0.2);
+    }
+    .form-group { margin-bottom: 22px; }
+    .form-group label {
+      display: block; margin-bottom: 8px; font-size: 0.92rem;
+      color: var(--text-dark); font-weight: 400; letter-spacing: 0.2px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 14px 18px;
+      border: 1.5px solid var(--pink-light); border-radius: 18px;
+      font-family: 'Inter', sans-serif; font-size: 0.96rem;
+      font-weight: 300; background: #fef7f9; color: var(--text-dark);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none; resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--pink-medium);
+      box-shadow: 0 0 0 3px rgba(217, 122, 158, 0.12);
+      background: #fff;
+    }
+    .form-group textarea { min-height: 130px; }
+    .contact-form .btn { width: 100%; padding: 16px; font-size: 1.05rem; margin-top: 6px; }
+    .form-note { text-align: center; margin-top: 18px; font-size: 0.86rem; color: #9b7e8a; font-weight: 300; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: #fef7f9; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 26px;
+    }
+    .testi-card {
+      background: var(--card-bg); padding: 32px 26px;
+      border-radius: 28px; border: 1px solid var(--pink-light);
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 26px -12px rgba(217, 122, 158, 0.15);
+      position: relative;
+    }
+    .testi-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--yellow-warm);
+      box-shadow: 0 24px 36px -16px rgba(217, 122, 158, 0.3);
+    }
+    .testi-quote {
+      position: absolute; top: 18px; right: 24px;
+      font-size: 2.4rem; color: var(--pink-soft);
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .testi-stars { color: var(--yellow-warm); font-size: 0.95rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-text { color: var(--text-soft); font-size: 0.97rem; font-weight: 300; line-height: 1.8; margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px dashed var(--pink-light); }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink-medium), var(--pink-deep));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-family: 'Poppins', sans-serif;
+      font-size: 1rem; font-weight: 500; flex-shrink: 0;
+    }
+    .testi-name { font-family: 'Poppins', sans-serif; font-size: 0.95rem; color: var(--text-dark); font-weight: 500; }
+    .testi-role { font-size: 0.8rem; color: #9b7e8a; font-weight: 300; }
+    .testi-summary {
+      text-align: center; margin-top: 50px;
+      padding: 28px 24px; background: var(--card-bg);
+      border-radius: 28px; border: 1px solid var(--pink-light);
+      max-width: 560px; margin-left: auto; margin-right: auto;
+      box-shadow: 0 12px 26px -12px rgba(217, 122, 158, 0.15);
+    }
+    .testi-summary .big-rating {
+      font-family: 'Poppins', sans-serif; font-size: 2.6rem;
+      color: var(--pink-deep); font-weight: 500; line-height: 1;
+    }
+    .testi-summary .stars { color: var(--yellow-warm); font-size: 1.2rem; margin: 8px 0; letter-spacing: 3px; }
+    .testi-summary p { color: var(--text-soft); font-size: 0.92rem; font-weight: 300; }
+
+    /* FOOTER */
+    .footer {
+      background: linear-gradient(145deg, #fdf5f8 0%, #fceef4 100%);
+      padding: 60px 24px 30px; border-top: 1px solid var(--pink-light);
+    }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px;
+    }
+    .footer-brand h3 { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 500; color: var(--text-dark); margin-bottom: 14px; }
+    .footer-brand h3 span { color: var(--pink-deep); }
+    .footer-brand p { color: var(--text-soft); font-size: 0.94rem; font-weight: 300; line-height: 1.8; margin-bottom: 20px; max-width: 320px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--pink-soft); color: var(--pink-deep);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: 0.2s; font-size: 1rem;
+      border: 1px solid var(--pink-light);
+    }
+    .footer-social a:hover { background: var(--pink-medium); color: white; transform: translateY(-3px); }
+    .footer-col h4 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-dark); margin-bottom: 16px; letter-spacing: 0.2px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: var(--text-soft); text-decoration: none; font-size: 0.92rem; font-weight: 300; transition: 0.2s; }
+    .footer-col ul li a:hover { color: var(--pink-deep); padding-left: 4px; }
+    .footer-contact p { color: var(--text-soft); font-size: 0.92rem; font-weight: 300; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .footer-contact p i { color: var(--pink-deep); width: 18px; font-size: 0.9rem; }
+    .footer-bottom {
+      max-width: 1200px; margin: 40px auto 0; padding-top: 24px;
+      border-top: 1px solid var(--pink-light);
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: center; gap: 12px;
+    }
+    .footer-bottom p { color: var(--text-soft); font-size: 0.88rem; font-weight: 300; }
+    .footer-bottom p span { color: var(--pink-deep); font-weight: 500; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: var(--text-soft); text-decoration: none; font-size: 0.86rem; font-weight: 300; transition: 0.2s; }
+    .footer-bottom-links a:hover { color: var(--pink-deep); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 66px; left: -100%; width: 82%;
+        height: calc(100vh - 66px);
+        background: rgba(254, 247, 249, 0.98);
+        backdrop-filter: blur(18px);
+        flex-direction: column; align-items: flex-start;
+        padding: 40px 28px; gap: 24px; transition: 0.3s;
+        border-right: 1.5px solid var(--pink-light); z-index: 998;
+        overflow-y: auto;
+      }
+      .nav-links.active { left: 0; }
+      .nav-links a { font-size: 1.08rem; width: 100%; }
+      .nav-links .btn-whatsapp-nav { width: auto; font-size: 1rem; padding: 12px 24px; }
+      .hero-text h1 { font-size: 2.4rem; }
+      .hero-orb { width: 250px; height: 250px; }
+      h2 { font-size: 2rem; }
+      .about-grid { flex-direction: column; }
+      .stat-item { padding: 20px 10px; }
+      .booking-card { padding: 32px 20px; }
+      .booking-card h3 { font-size: 1.6rem; }
+      .whatsapp-number { font-size: 1.2rem; }
+      .marquee span { padding: 0 18px; font-size: 0.9rem; }
+      .contact-form { padding: 30px 22px; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-links { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 1.9rem; }
+      .btn { padding: 12px 22px; font-size: 0.9rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stat-number { font-size: 1.6rem; }
+      .hero-orb { width: 210px; height: 210px; }
+      .marquee span i { display: none; }
+      .nav-container { gap: 6px; }
+      .logo { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">Dayna <span>Studio</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/917249196922?text=Hi%20Dayna%20Studio!%20I%27d%20like%20to%20book%20a%20consultation%20for%20my%20brand." 
+           target="_blank" class="btn-whatsapp-nav">
+          <i class="fab fa-whatsapp"></i> Book Now
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrapper">
+    <div class="marquee">
+      <span><i class="fas fa-star"></i> Website Design</span>
+      <span><i class="fas fa-star"></i> Marketing</span>
+      <span><i class="fas fa-star"></i> SEO</span>
+      <span><i class="fas fa-star"></i> UGC Ads for Brands</span>
+      <span><i class="fas fa-star"></i> Web Design</span>
+      <span><i class="fas fa-star"></i> Marketing</span>
+      <span><i class="fas fa-star"></i> SEO</span>
+      <span><i class="fas fa-star"></i> UGC Ads for Brands</span>
+      <span><i class="fas fa-star"></i> Website Design</span>
+      <span><i class="fas fa-star"></i> Marketing</span>
+      <span><i class="fas fa-star"></i> SEO</span>
+      <span><i class="fas fa-star"></i> UGC Ads for Brands</span>
+      <span><i class="fas fa-star"></i> Web Design</span>
+      <span><i class="fas fa-star"></i> Marketing</span>
+      <span><i class="fas fa-star"></i> SEO</span>
+      <span><i class="fas fa-star"></i> UGC Ads for Brands</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="badge">Dayna Entrepreneur Studio</div>
+        <h1>Grow your brand with <span>thoughtful strategy</span> & creative direction.</h1>
+        <p>We craft websites, marketing, SEO, and UGC ads that feel authentic and perform beautifully — for modern brands that want to stand out.</p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i>Book a call</a>
+          <a href="#services" class="btn btn-outline">Our services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-orb">
+          <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-label="Creative vector art">
+            <defs>
+              <linearGradient id="gradPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#d97a9e" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#b34a72" stop-opacity="0.7"/>
+              </linearGradient>
+              <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f5d76e" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f7e5a9" stop-opacity="0.6"/>
+              </linearGradient>
+              <linearGradient id="gradSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fce4ef" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#f8e4ed" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+            <circle cx="150" cy="150" r="140" fill="url(#gradSoft)" opacity="0.5"/>
+            <path d="M70 190 Q110 120 150 160 T230 140" stroke="url(#gradPink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M80 150 Q120 100 170 130 T240 110" stroke="url(#gradYellow)" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+            <path d="M90 210 Q140 170 180 200 T250 180" stroke="url(#gradPink)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+            <circle cx="100" cy="100" r="6" fill="#d97a9e" opacity="0.7"/>
+            <circle cx="215" cy="105" r="4.5" fill="#f5d76e" opacity="0.9"/>
+            <circle cx="230" cy="200" r="5" fill="#b34a72" opacity="0.6"/>
+            <circle cx="80" cy="190" r="4" fill="#f5d76e" opacity="0.8"/>
+            <circle cx="160" cy="80" r="3.5" fill="#d97a9e" opacity="0.5"/>
+            <g transform="translate(150,150)">
+              <circle cx="0" cy="0" r="10" fill="#b34a72" opacity="0.15"/>
+              <circle cx="0" cy="0" r="22" fill="none" stroke="url(#gradPink)" stroke-width="2" opacity="0.6"/>
+              <circle cx="0" cy="0" r="34" fill="none" stroke="url(#gradYellow)" stroke-width="1.8" opacity="0.5" stroke-dasharray="6 6"/>
+              <ellipse cx="0" cy="-18" rx="7" ry="14" fill="url(#gradPink)" opacity="0.55" transform="rotate(0)"/>
+              <ellipse cx="0" cy="-18" rx="7" ry="14" fill="url(#gradYellow)" opacity="0.5" transform="rotate(72)"/>
+              <ellipse cx="0" cy="-18" rx="7" ry="14" fill="url(#gradPink)" opacity="0.5" transform="rotate(144)"/>
+              <ellipse cx="0" cy="-18" rx="7" ry="14" fill="url(#gradYellow)" opacity="0.55" transform="rotate(216)"/>
+              <ellipse cx="0" cy="-18" rx="7" ry="14" fill="url(#gradPink)" opacity="0.5" transform="rotate(288)"/>
+              <circle cx="0" cy="0" r="5" fill="#b34a72" opacity="0.9"/>
+            </g>
+            <polygon points="60,70 72,55 84,70" fill="#f5d76e" opacity="0.6"/>
+            <polygon points="230,80 240,68 250,80" fill="#d97a9e" opacity="0.5"/>
+            <path d="M50 240 Q100 215 150 235 T250 225" stroke="#d97a9e" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+            <path d="M60 255 Q110 235 160 250 T250 245" stroke="#f5d76e" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 style="text-align: center;">About <span>Dayna</span></h2>
+      <p class="section-subhead">A studio built on clarity, craft, and a genuine love for brand storytelling.</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p><span class="highlight">Dayna Entrepreneur Studio</span> is a full-service creative agency for founders and brands who value both substance and style.</p>
+          <p>We blend data-informed marketing with scroll-stopping design. From website design to UGC ads that feel native, we help you connect with your audience in a way that feels natural and compelling.</p>
+          <p>Our SEO strategies put you on the map, while our marketing turns quiet visitors into loyal customers. We keep things professional, warm, and always human.</p>
+          <p style="font-weight: 400; color: var(--pink-deep);">Let's create something that lasts.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item"><div class="stat-number">120+</div><div class="stat-label">Projects delivered</div></div>
+          <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">Client retention</div></div>
+          <div class="stat-item"><div class="stat-number">4.9</div><div class="stat-label">Average rating</div></div>
+          <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 style="text-align: center;">Our <span>Services</span></h2>
+      <p class="section-subhead">Everything you need to launch, grow, and connect with your audience.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Website Design</h3>
+          <p>Custom, responsive websites that tell your story and gently guide visitors to action.</p>
+          <span class="service-tag">UI / UX</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Marketing</h3>
+          <p>Full-funnel campaigns across social, email, and paid ads — built for steady, sustainable growth.</p>
+          <span class="service-tag">Growth</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-search"></i></div>
+          <h3>SEO</h3>
+          <p>Rank higher on Google with on-page, technical, and local SEO strategies that actually last.</p>
+          <span class="service-tag">Visibility</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-video"></i></div>
+          <h3>UGC Ads for Brands</h3>
+          <p>Authentic user-generated content ads that stop the scroll and drive genuine engagement.</p>
+          <span class="service-tag">Social proof</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking">
+    <div class="container">
+      <div class="booking-card">
+        <i class="fab fa-whatsapp"></i>
+        <h3>Book instantly on WhatsApp</h3>
+        <p>Tap below to send a pre-filled message. We'll reply within minutes.</p>
+        <div class="whatsapp-number"><i class="fas fa-phone-alt" style="font-size: 1.2rem; margin-right: 12px;"></i>+91 7249196922</div>
+        <a href="https://wa.me/917249196922?text=Hi%20Dayna%20Studio!%20I%27d%20like%20to%20book%20a%20consultation%20for%20my%20brand.%20Please%20share%20availability." 
+           target="_blank" class="btn btn-yellow" style="font-size: 1.1rem; padding: 16px 44px;">
+          <i class="fab fa-whatsapp" style="margin-right: 12px;"></i>Book on WhatsApp
+        </a>
+        <p class="booking-note">Auto message ready — just hit send. We'll take it from there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 style="text-align: center;">Get in <span>Touch</span></h2>
+      <p class="section-subhead">Send us a message and we'll get back to you within 24 hours.</p>
+      <form class="contact-form" action="https://formsubmit.co/contact@daynaenterprenurestudio.in" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New enquiry from Dayna Studio website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://daynaenterprenurestudio.in/#contact">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <input type="text" id="service" name="service" placeholder="Website Design, SEO, UGC Ads, etc.">
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send Message
+        </button>
+        <p class="form-note">Your message will be sent to contact@daynaenterprenurestudio.in</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 style="text-align: center;">Client <span>Testimonials</span></h2>
+      <p class="section-subhead">Real words from real founders and brand teams we've worked with.</p>
+
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Dayna Studio rebuilt our website and revamped our SEO. Within three months, organic traffic nearly doubled. The team is thoughtful, responsive, and genuinely invested in our growth.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AR</div>
+            <div>
+              <div class="testi-name">Ananya Rao</div>
+              <div class="testi-role">Founder, Petal & Pine</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">The UGC ads they produced for our skincare launch felt so natural — not salesy at all. Our Reels CTR jumped to 6.8% and ROAS hit 3.2x. Couldn't have asked for better.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">KM</div>
+            <div>
+              <div class="testi-name">Karan Mehta</div>
+              <div class="testi-role">Marketing Lead, Glow Ritual</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Working with Dayna was refreshing. They understood our brand voice instantly and delivered a website that feels like us. The enquiry flow alone boosted our leads by 64%.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SP</div>
+            <div>
+              <div class="testi-name">Sneha Pillai</div>
+              <div class="testi-role">Creative Director, Aura Interiors</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Their marketing strategy was clear, measurable, and actually fun to execute. We saw steady month-over-month growth without burning our budget. Highly recommend.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RD</div>
+            <div>
+              <div class="testi-name">Rohan Desai</div>
+              <div class="testi-role">Co-founder, FuelUp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-summary">
+        <div class="big-rating">4.9</div>
+        <div class="stars">★★★★★</div>
+        <p>Average rating from 80+ client reviews across design, marketing, SEO, and UGC projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Dayna <span>Studio</span></h3>
+        <p>A full-service creative agency helping modern brands grow through thoughtful design, marketing, SEO, and authentic UGC ads.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/917249196922" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:contact@daynaenterprenurestudio.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Website Design</a></li>
+          <li><a href="#services">Marketing</a></li>
+          <li><a href="#services">SEO</a></li>
+          <li><a href="#services">UGC Ads for Brands</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Get in Touch</h4>
+        <p><i class="fab fa-whatsapp"></i> +91 7249196922</p>
+        <p><i class="fas fa-envelope"></i> contact@daynaenterprenurestudio.in</p>
+        <p><i class="fas fa-map-marker-alt"></i> India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Dayna Entrepreneur Studio</span>. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#home">Privacy Policy</a>
+        <a href="#home">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          const icon = menuToggle.querySelector('i');
+          if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
