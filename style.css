@@ -91,9 +91,9 @@ h2 span, h3 span { color: var(--pink-glow); }
 /* ========== NAVBAR ========== */
 .navbar {
   position: fixed; top: 0; left: 0; width: 100%;
-  background: rgba(10, 10, 10, 0.9);
+  background: #FDFBF7; /* Changed to Cream White */
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #E8E0D5; /* Light beige border */
   z-index: 999; padding: 12px 0;
 }
 .nav-container {
@@ -101,8 +101,7 @@ h2 span, h3 span { color: var(--pink-glow); }
   max-width: 1200px; margin: 0 auto; padding: 0 24px; gap: 12px;
 }
 .logo {
-  font-family: 'Poppins', sans-serif; font-size: 1.45rem; font-weight: 600;
-  color: var(--text); text-decoration: none; letter-spacing: -0.3px;
+  color: #2C2C2C; /* Dark grey logo */
 }
 .logo span { color: var(--pink-glow); }
 .nav-links { display: flex; align-items: center; gap: 26px; }
@@ -112,8 +111,8 @@ h2 span, h3 span { color: var(--pink-glow); }
   border-bottom: 1.5px solid transparent; padding-bottom: 3px;
   display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
 }
-.nav-links > a:hover, .dropdown-toggle:hover, .dropdown:hover .dropdown-toggle {
-  color: var(--pink-glow); border-bottom-color: var(--pink);
+.nav-links > a, .dropdown-toggle {
+  color: #2C2C2C; /* Dark grey text */
 }
 .btn-whatsapp-nav {
   background: var(--whatsapp); color: #fff !important;
