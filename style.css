@@ -66,14 +66,14 @@ h2 span, h3 span { color: var(--pink-glow); }
   letter-spacing: 0.2px; white-space: nowrap;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--pink), var(--pink-accent));
+  background: var(--pink); /* Solid Navy */
   color: #fff;
-  box-shadow: 0 8px 24px -8px rgba(194, 24, 91, 0.6);
+  box-shadow: 0 8px 24px -8px rgba(30, 58, 138, 0.4); /* Navy shadow */
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--pink-glow), var(--pink));
+  background: var(--pink-accent); /* Darker Navy on hover */
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -8px rgba(233, 30, 140, 0.7);
+  box-shadow: 0 14px 30px -8px rgba(30, 58, 138, 0.6);
 }
 .btn-outline {
   background: transparent; border: 1.5px solid var(--pink);
@@ -178,12 +178,11 @@ h2 span, h3 span { color: var(--pink-glow); }
 
 /* ========== HERO ========== */
 .hero {
-  min-height: 92vh; display: flex; align-items: center;
+  /* ... */
   background:
-    radial-gradient(circle at 80% 10%, rgba(194, 24, 91, 0.18) 0%, transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(233, 30, 140, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.08) 0%, transparent 45%), /* Subtle yellow glow */
+    radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.05) 0%, transparent 50%), /* Subtle navy glow */
     var(--bg);
-  padding: 120px 0 80px; position: relative;
 }
 .hero-content {
   display: grid; grid-template-columns: 1.1fr 1fr;
@@ -212,7 +211,7 @@ h2 span, h3 span { color: var(--pink-glow); }
   width: 100%; aspect-ratio: 4/5; object-fit: cover;
   border-radius: 24px;
   border: 1px solid var(--border);
-  box-shadow: 0 30px 60px -20px rgba(194, 24, 91, 0.5);
+ box-shadow: 0 30px 60px -20px rgba(15, 23, 42, 0.15);
   background: #1a1a1a;
   position: relative;
 }
@@ -270,7 +269,7 @@ h2 span, h3 span { color: var(--pink-glow); }
 }
 .service-card:hover {
   border-color: var(--pink);
-  box-shadow: 0 0 40px rgba(194, 24, 91, 0.3);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1); /* Clean, soft shadow instead of pink */
   transform: translateY(-6px);
 }
 .service-img-wrap { position: relative; overflow: hidden; }
@@ -304,8 +303,9 @@ h2 span, h3 span { color: var(--pink-glow); }
 }
 .testi-card:hover {
   border-color: var(--pink);
-  box-shadow: 0 0 32px rgba(194, 24, 91, 0.22);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); 
   transform: translateY(-4px);
+
 }
 .testi-stars { color: var(--pink-glow); letter-spacing: 3px; margin-bottom: 14px; }
 .testi-text {
@@ -513,7 +513,7 @@ h2 span, h3 span { color: var(--pink-glow); }
   border-radius: 14px; margin-bottom: 14px; overflow: hidden;
   transition: border-color 0.2s;
 }
-.faq-item:hover { border-color: rgba(194, 24, 91, 0.5); }
+.faq-item:hover { border-color: var(--pink); }
 .faq-q {
   width: 100%; background: transparent; border: none;
   padding: 20px 24px; text-align: left;
