@@ -164,9 +164,9 @@ h2 span, h3 span { color: var(--pink-glow); }
 .marquee { display: inline-block; animation: scrollMarquee 30s linear infinite; }
 .marquee span {
   display: inline-block; padding: 0 32px;
-  font-size: 0.95rem; color: var(--text-soft); letter-spacing: 0.4px;
+  font-size: 0.95rem; color: #FFFFFF; letter-spacing: 0.4px;
 }
-.marquee span i { color: var(--pink-glow); margin-right: 8px; font-size: 0.8rem; }
+.marquee span i { color: #FFFFFF; margin-right: 8px; font-size: 0.8rem; }
 @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ========== HERO ========== */
