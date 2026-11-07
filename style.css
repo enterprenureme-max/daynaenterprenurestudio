@@ -11,16 +11,23 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 :root {
-  --bg: #FDFBF7;          /* Cream background */
-  --bg-soft: #F7F3EB;     /* Slightly darker cream for alternate sections */
-  --bg-card: #FFFFFF;     /* Pure white for cards */
-  --border: #E8E0D5;      /* Warm light beige for borders */
-  --pink: #C2185B;
-  --pink-accent: #AD1457;
-  --pink-glow: #E91E8C;
-  --text: #2C2C2C;        /* Dark grey for main text (not black) */
-  --text-soft: #5A5A5A;   /* Medium grey for paragraphs */
-  --text-muted: #8A8A8A;  /* Light grey for small labels */
+  /* Backgrounds */
+  --bg: #FFFBF0;           /* Soft Light Yellow/Cream main background */
+  --bg-soft: #FFF4D2;      /* Slightly deeper yellow for alternate sections */
+  --bg-card: #FFFFFF;      /* Pure White for cards to make them pop */
+  --border: #E2E8F0;       /* Clean, cool grey borders */
+  
+  /* Brand Colors (Navy & Warm Yellow) */
+  --pink: #1E3A8A;         /* Deep Navy Blue (Replaces primary pink for buttons) */
+  --pink-accent: #172554;  /* Darker Navy for hover states */
+  --pink-glow: #F59E0B;    /* Warm Yellow (Replaces pink glow for highlights & badges) */
+  
+  /* Text Colors */
+  --text: #0F172A;         /* Deep Navy (Softer and more premium than black) */
+  --text-soft: #334155;    /* Slate Grey for paragraphs */
+  --text-muted: #64748B;   /* Light Slate for small labels */
+  
+  /* Utility */
   --whatsapp: #25D366;
 }
 ::selection { background: var(--pink); color: #fff; }
